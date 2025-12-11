@@ -4,10 +4,6 @@ const COOKIE_NAME = "auth_token";
 const MAX_AGE = 60 * 60 * 24 * 7;
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
 
-interface CookieGetter {
-  get(name: string): { value: string } | undefined;
-}
-
 export function setAuthCookie(response: NextResponse, token: string): void {
   // 인증 쿠키 설정 함수
   response.cookies.set(COOKIE_NAME, token, {
@@ -29,7 +25,3 @@ export function removeAuthCookie(response: NextResponse): void {
   });
 }
 
-export function getAuthCookie(cookies: CookieGetter): string | undefined {
-  // 인증 쿠키 가져오기 함수
-  return cookies.get(COOKIE_NAME)?.value;
-}

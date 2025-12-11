@@ -17,7 +17,7 @@ export function errorResponse( //  에러 응답 함수
 ): NextResponse {
   return NextResponse.json(
     {
-      sucess: false,
+      success: false,
       data: null,
       message: message,
     },
